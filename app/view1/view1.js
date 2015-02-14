@@ -1,6 +1,13 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.view1', ['ngRoute','ngResource'])
+
+.factory('Books', function($resource) {
+  return $resource('catalog.json', {Id:'@id'},
+       {
+       'query':  {method:'GET', isArray:false}
+       }
+)})
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
@@ -9,6 +16,7 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [function() {
-
+.controller('View1Ctrl', ['$scope','Books',
+  function($scope, Books){
+    $scope.books = Books.query();
 }]);
