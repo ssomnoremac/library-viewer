@@ -1,5 +1,11 @@
 /* app css stylesheet */
+h5{
+  line-height:1em;
+}
 
+p{
+  margin:0;
+}
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -27,4 +33,21 @@
 .menu > li:nth-child(1):before {
   content: "";
   padding: 0;
+}
+img.thumbnail{
+  height:88px;
+  display:inline-block;
+}
+.info-area{
+  display:inline-block;
+}
+.library-item{
+  padding: 6px;
+  margin: 6px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  height:100px;
+}
+.button{
+  margin:0;
 }

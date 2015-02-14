@@ -3,14 +3,12 @@
 		<h1>Books</h1>
 	</div>
 	<div class="list-group">
-		<div data-ng-repeat="book in books" class="list-group-item">
-			<small class="list-group-item-text">
-				Title:
-				<span data-ng-bind="book.doc.name"></span>
-				Author:
-				<span data-ng-bind="book.doc.authors[0].full_name"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
-			<p class="list-group-item-text" data-ng-bind="article.content"></p>
+		<div data-ng-repeat="book in books" class="library-item">
+			<img class="thumbnail" ng-src="thumbnails/{{book.id}}.jpg"/>
+			<div class="info-area">
+				<h5 class="library-item-title" data-ng-bind="book.doc.name"></h4>
+				<p class="library-item-author" data-ng-bind="book.doc.authors[0].full_name"></p>
+			</div>
+			<a href='#' class="button small">READ</a>
 		</div>
 	</div>
