@@ -40,14 +40,28 @@ img.thumbnail{
 }
 .info-area{
   display:inline-block;
+  max-width:300px;
 }
 .library-item{
   padding: 6px;
-  margin: 6px;
+  margin: 0 0 6px 0;
   background-color: #fff;
   border: 1px solid #ddd;
   height:100px;
+  max-width:550px;
+  min-width:450px;
 }
-.button{
+.library-item .button{
   margin:0;
+  float:right;
+}
+.list-group{
+  background-color:#eee;
+  padding: 6px;
+}
+input.search-input{
+  max-width: 550px;
+  margin: 6px;
+  font-size: 20px;
+  font-weight: 900;
 }

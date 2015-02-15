@@ -3,7 +3,7 @@
 angular.module('myApp.view1', ['ngRoute','ngResource'])
 
 .factory('Books', function($resource) {
-  return $resource('catalog.json', {Id:'@id'},
+  return $resource('catalog2.json', null,
        {
        'query':  {method:'GET', isArray:false}
        }
@@ -18,5 +18,22 @@ angular.module('myApp.view1', ['ngRoute','ngResource'])
 
 .controller('View1Ctrl', ['$scope','Books',
   function($scope, Books){
-    $scope.books = Books.query();
+    Books.query(function(data){
+      $scope.booklist = data;
+      // create a list of languages
+      var languageList = [];
+      data.books.forEach(function(book){
+        if (book.doc.languages){
+          book.doc.languages.forEach(function(lang){
+            languageList.push(lang);
+          });
+        }
+      });
+      // remove duplicates
+      var uniqueLanguageList = languageList.filter(function(elem, pos) {
+          return languageList.indexOf(elem) == pos;
+        }); 
+      $scope.languages = uniqueLanguageList;
+      $scope.predicate = 'book.doc.authors[0].full_name'
+    });
 }]);

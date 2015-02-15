@@ -1,10 +1,18 @@
 
-    <div class="page-header">
-		<h1>Books</h1>
+    <div class="top nav">
+		<a href="" ng-click="predicate = 'book.doc.authors[0].full_name'; reverse=!reverse" class="button large">Alphabetical</a>
+		<a href="" ng-click="predicate = 'book.doc.name'; reverse=!reverse" class="button large">Difficulty</a>
+		<a href="" class="button dropdown large" dropdown-toggle="#languages">Language</a>
+		<ul id='languages' class="f-dropdown" >
+    		<li ng-repeat="language in languages">
+      			<a href="#">{{language}}</a>
+   			</li>
+  		</ul>
 	</div>
+	<input class='search-input' type="text" data-ng-model="searchText" placeholder='search'/>
 	<div class="list-group">
-		<div data-ng-repeat="book in books" class="library-item">
-			<img class="thumbnail" ng-src="thumbnails/{{book.id}}.jpg"/>
+		<div data-ng-repeat="book in booklist.books | filter:searchText | orderBy:predicate:reverse" class="library-item">
+			<img class="thumbnail" data-ng-src="thumbnails/{{book.doc._id}}.jpg"/>
 			<div class="info-area">
 				<h5 class="library-item-title" data-ng-bind="book.doc.name"></h4>
 				<p class="library-item-author" data-ng-bind="book.doc.authors[0].full_name"></p>
