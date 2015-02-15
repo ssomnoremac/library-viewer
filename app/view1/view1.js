@@ -34,6 +34,13 @@ angular.module('myApp.view1', ['ngRoute','ngResource'])
           return languageList.indexOf(elem) == pos;
         }); 
       $scope.languages = uniqueLanguageList;
-      $scope.predicate = 'book.doc.authors[0].full_name'
+      $scope.predicate = 'doc.name';
+      $scope.languageButtonTitle = 'Language';
+      $scope.updateLanguage = function(selectedLanguage) {
+        $scope.languageButtonTitle = selectedLanguage;
+        $scope.filterLanguage = selectedLanguage;
+        $scope.languageSelected = "selected";
+      };
+      $scope.collapsed = false;
     });
 }]);

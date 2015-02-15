@@ -35,13 +35,26 @@ p{
   padding: 0;
 }
 img.thumbnail{
-  height:88px;
+  max-width:70px;
+  max-height:88px;
   display:inline-block;
+}
+.thumbnail-container{
+  display:inline;
+  overflow:hidden;
 }
 .info-area{
   display:inline-block;
   max-width:300px;
 }
+.list-group.collapsed .library-item{
+  height: 40px;
+}
+.list-group.collapsed p, .list-group.collapsed h5{
+  font-size:12px;
+  display:inline-block;
+}
+
 .library-item{
   padding: 6px;
   margin: 0 0 6px 0;
@@ -64,4 +77,21 @@ input.search-input{
   margin: 6px;
   font-size: 20px;
   font-weight: 900;
+}
+.top{
+  padding:6px;
+  max-width: 550px;
+}
+.top .button{
+  margin-bottom:0;
+}
+.top .dropdown.button.large.selected{
+  float:right;
+  background-color:red;
+  transition:1s;
+  padding-left:15px;
+  padding-right:15px;
+}
+.dropdown.button.large.selected::after{
+  display:none;
 }
