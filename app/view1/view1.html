@@ -1,42 +1,52 @@
 
 <snap-drawer>
-  <div class="top nav">
+	<!-- navigation content -->
+    <div class="side-bar">
 		<a href="" ng-click="predicate = 'doc.authors[0].full_name'; reverse=!reverse" class="button large">
 				abc <i class='fa fa-user'></i>
 		</a>
 		<a href="" ng-click="predicate = 'doc.name'; reverse=!reverse" class="button large">
 			    abc <i class='fa fa-book'></i>
 		</a>
+		<a href="" class="button large" data-ng-click="collapsed=!collapsed">
+  			<i class='fa fa-compress' ng-hide='collapsed'></i>
+  			<i class='fa fa-expand' ng-show='collapsed'></i>
+  		</a>
 		<a href="" class="button dropdown large" data-ng-class="languageSelected" data-ng-bind="languageButtonTitle" dropdown-toggle="#languages"></a>
 		<ul id='languages' class="f-dropdown">
     		<li ng-repeat="language in languages">
       			<a href="" ng-click="updateLanguage(language)" data-ng-bind="language">{{language}}</a>
    			</li>
   		</ul>
-  		<a href="" class="button large" data-ng-click="collapsed=!collapsed">
-  			<i class='fa fa-compress' ng-hide='collapsed'></i>
-  			<i class='fa fa-expand' ng-show='collapsed'></i>
-  		</a>
 	</div>
+	
 </snap-drawer>
 
+
 <snap-content>
-    
-	<input class='search-input' type="text" data-ng-model="searchText" placeholder='search'/>
+    <!-- main content -->
+    <div class="top">
+    	<a class="button toggle-menu" snap-toggle="left">
+    		<i class="fa fa-bars fa-3x"></i>
+    	</a>
+		<input class='search-input' type="text" data-ng-model="searchText" placeholder='search'/>
+	</div>
 	<div class="list-group" data-ng-class="{'collapsed':collapsed}">
-		<div data-ng-repeat="book in booklist | filter:searchText | filter:filterLanguage | orderBy:predicate:reverse" class="library-item">
-			<div class='thumbnail-container'>
-				<img class="thumbnail" data-ng-hide="collapsed" data-ng-src="thumbnails/{{book.doc._id}}.jpg"/>
-			</div>
-			<div class="info-area">
-				<h5 class="library-item-title" data-ng-bind="book.doc.name"></h4>
-				<span data-ng-show="collapsed"> | </span>
-				<p class="library-item-author" data-ng-bind="book.doc.authors[0].full_name"></p>
-			</div>
-			<a href='#' class="button small" data-ng-hide="collapsed">READ</a>
+		<div data-ng-repeat="book in booklist | filter:searchText | filter:filterLanguage | orderBy:predicate:reverse" class="library-item" ng-class="{expanded: expo[book.id]}">
+			<a class="info-area" ng-click="expand(book.id)" >
+				<div class='thumbnail-container'>
+					<img class="thumbnail" data-ng-hide="collapsed" data-ng-src="thumbnails/{{book.id}}.jpg"/>
+				</div>
+				<div class='main-info-container'>
+					<h5 class="library-item-title" data-ng-bind="book.doc.name"></h5>
+					<p class="library-item-author" data-ng-bind="book.doc.authors[0].full_name"></p>
+				</div>
+				<div class="extra-info">
+					Blurb:<p data-ng-bind="book.doc.blurb"></p>
+					Editor:<p data-ng-bind="book.doc.editor[0].name"></p>
+				</div>
+			<a href='#' class="button large read" data-ng-hide="collapsed">READ</a>
 		</div>
 	</div>
-
-
 </snap-content>
 	

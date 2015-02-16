@@ -18,6 +18,15 @@ angular.module('myApp.view1', ['ngRoute','ngResource'])
 
 .controller('View1Ctrl', ['$scope','Books',
   function($scope, Books){
+    $scope.expo = {};
+    // function to handle click event and toggle "expanded" class of library items
+    $scope.expand = function (id){
+      if($scope.expo[id]) {
+        $scope.expo[id] = false;
+      } else {
+        $scope.expo[id] = true;
+      }
+    };
     // create a prommise to return a filtered array from Book resource
     var promise = new Promise(function(resolve,reject,data){
       Books.query(function(data){

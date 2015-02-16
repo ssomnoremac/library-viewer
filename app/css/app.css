@@ -1,38 +1,12 @@
 /* app css stylesheet */
 h5{
   line-height:1em;
+  font-size:20px;
 }
 
 p{
   margin:0;
-}
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
-}
-
-.menu:before {
-  content: "[";
-}
-
-.menu:after {
-  content: "]";
-}
-
-.menu > li {
-  display: inline;
-}
-
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+  font-size:16px;
 }
 img.thumbnail{
   max-width:86px;
@@ -45,17 +19,21 @@ img.thumbnail{
 }
 .info-area{
   display:inline-block;
-  max-width:300px;
   vertical-align:middle;
+}
+.main-info-container{
+  height:80px;
+  vertical-align:middle;
+  display:inline-block;
+  max-width:265px;
+}
+.collapsed .main-info-container{
+  max-width:700px;
 }
 .list-group.collapsed .library-item{
   height: 40px;
+  margin:0;
 }
-.list-group.collapsed p, .list-group.collapsed h5{
-  font-size:12px;
-  display:inline-block;
-}
-
 .library-item{
   padding: 6px;
   margin: 0 0 6px 0;
@@ -63,29 +41,40 @@ img.thumbnail{
   border: 1px solid #ddd;
   height:120px;
   width: 100%;
-  max-width:750px;
-  min-width:450px;
+  min-width:550px;
 }
-.library-item .button{
-  margin:0;
-  float:right;
+.library-item.expanded{
+  height: 340px !important;
 }
+.library-item.expanded img{
+  display:inline-block !important;
+}
+.list-group.collapsed p{
+  display:inline-block;
+}
+.list-group.collapsed h5{
+  font-weight:500;
+  margin-right:10px;
+  display:inline-block;
+}
+
+
 .list-group{
   background-color:#eee;
   padding: 6px;
 }
 input.search-input{
-  max-width: 550px;
+  max-width: 80%;
   margin: 6px;
-  font-size: 20px;
-  font-weight: 900;
+  font-size: 29px;
+  font-weight: 700;
+  display:inline-block;
+  height:55px;
 }
-.top{
-  padding:6px;
-  max-width: 550px;
-}
-.top .button{
-  margin-bottom:0;
+
+.side-bar .button{
+  margin: 10px 20px 0;
+  width:222px;
 }
 .top .dropdown.button.large.selected{
   float:right;
@@ -97,7 +86,29 @@ input.search-input{
 .dropdown.button.large.selected::after{
   display:none;
 }
-
+a.read{
+  margin:23px 10px;
+  float:right;
+}
+a.toggle-menu{
+  padding: 13px 19px;
+  margin: 6px 0;
+  z-index:5000;
+}
 snap-content{
   background-color:#fff;
+  max-width:750px;
+  min-width:450px;
+}
+snap-drawer{
+  background-color:#333;
+}
+.extra-info{
+  display:none;
+}
+.expanded .extra-info{
+  display:block;
+  padding: 20px;
+  margin:20px 0;
+  border: 1px solid #ccc;
 }
