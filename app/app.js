@@ -6,8 +6,12 @@ angular.module('myApp', [
   'myApp.view1',
   'myApp.view2',
   'myApp.version',
-  'mm.foundation'
+  'mm.foundation',
+  'snap'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+}]).
+config(function(snapRemoteProvider) {
+    snapRemoteProvider.globalOptions.disable = 'right';
+});

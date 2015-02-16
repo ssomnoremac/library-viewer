@@ -3,7 +3,7 @@
 angular.module('myApp.view1', ['ngRoute','ngResource'])
 
 .factory('Books', function($resource) {
-  return $resource('catalog2.json', null,
+  return $resource('catalog.json', null,
        {
        'query':  {method:'GET', isArray:false}
        }
@@ -18,29 +18,48 @@ angular.module('myApp.view1', ['ngRoute','ngResource'])
 
 .controller('View1Ctrl', ['$scope','Books',
   function($scope, Books){
-    Books.query(function(data){
-      $scope.booklist = data;
-      // create a list of languages
-      var languageList = [];
-      data.books.forEach(function(book){
-        if (book.doc.languages){
-          book.doc.languages.forEach(function(lang){
-            languageList.push(lang);
-          });
+    // create a prommise to return a filtered array from Book resource
+    var promise = new Promise(function(resolve,reject,data){
+      Books.query(function(data){
+        var bookArray = [];
+        var keys = Object.keys(data);
+        for (var i = 0; i < keys.length; i++) {
+          bookArray[i] = data[keys[i]];
+        } 
+        $scope.booklist = bookArray;
+        if(bookArray){
+          resolve(bookArray);
+        }
+        else{
+          reject();
         }
       });
-      // remove duplicates
-      var uniqueLanguageList = languageList.filter(function(elem, pos) {
-          return languageList.indexOf(elem) == pos;
-        }); 
-      $scope.languages = uniqueLanguageList;
-      $scope.predicate = 'doc.name';
-      $scope.languageButtonTitle = 'Language';
-      $scope.updateLanguage = function(selectedLanguage) {
-        $scope.languageButtonTitle = selectedLanguage;
-        $scope.filterLanguage = selectedLanguage;
-        $scope.languageSelected = "selected";
-      };
-      $scope.collapsed = false;
     });
-}]);
+    // once the array is built, work with it
+    promise.then(function(result){
+      // create a list of languages
+        var languageList = [];
+        result.forEach(function(book){
+          if (book.doc){
+            book.doc.languages.forEach(function(lang){
+              languageList.push(lang);
+            });
+          }
+        });
+      // remove duplicates
+        var uniqueLanguageList = languageList.filter(function(elem, pos) {
+            return languageList.indexOf(elem) == pos;
+          }, function(){
+            $scope.languages = uniqueLanguageList;
+            $scope.predicate = 'doc.name';
+            $scope.languageButtonTitle = 'Language';
+            $scope.updateLanguage = function(selectedLanguage) {
+              $scope.languageButtonTitle = selectedLanguage;
+              $scope.filterLanguage = selectedLanguage;
+              $scope.languageSelected = "selected";
+            };
+          });
+        $scope.collapsed = false;
+    });
+  }
+]);
