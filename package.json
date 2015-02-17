@@ -19,6 +19,6 @@
     "prestart": "npm install",
 
     "pretest": "npm install",
-    "test": "karma start karma.conf.js",
+    "test": "karma start karma.conf.js"
   }
 }
