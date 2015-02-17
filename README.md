@@ -19,33 +19,36 @@ I knew I wanted to build the app with angular because I like the way it manages 
 Also, I like the framework for how it handles api requests, transforming them into resources.
 From catalog.json I make the book resource which I used to build scope context
 
-*Angular-seed
+* Angular-seed
 I needed a seed to same time building components and this one is popular
 
-*Foundation
+* Foundation
 I prefer it to Bootstrap. No good reason. I prefer their mascot?
 
-*Snapjs
+* Snapjs
 I needed a menu that was mobile and swipe capable
 
 ### Where to look
 
-*view1/view1.js
-*view1/view1.html
-*css/app.css
+* view1/view1.js
+* view1/view1.html
+* css/app.css
 
 1,2,3. Made it easy for ya.
 
 ### Still to Do
 
-*Optimize
+* Optimize
 More time needs to be spent emulating devices to ensure this works as a true mobile app
 
-*Fixed Header
+* Fixed Header
 I haven't worked with Snap enough to have figured this out but the search and menu should be fixed at the top -- not scroll
 
-*Menu Clarity
+* Promises, Promises
+There's a bug on load. Some of the angular $scope gets initiated too soon. There should be another promise in language and tag list builders.
+
+* Menu Clarity
 The menu could be better. Maybe words are better to describe sorting features -- or just better (changable) icons
 
-*Css -> SCSS
+* Css -> SCSS
 Sass makes more sense for handling three different view states
