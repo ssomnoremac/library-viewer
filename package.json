@@ -1,11 +1,11 @@
 {
-  "name": "angular-seed",
+  "name": "library-viewer",
   "private": true,
   "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
-  "license": "MIT",
-  "devDependencies": {
+  "description": "A mobile/tablet viewer for books in a library",
+  "repository": "https://github.com/ssomnoremac/library-viewer",
+  "license": "",
+  "dependencies": {
     "karma": "~0.10",
     "protractor": "^1.1.1",
     "http-server": "^0.6.1",

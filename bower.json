@@ -1,9 +1,9 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "name": "library-viwer",
+  "description": "A mobile/tablet viewer for books in a library",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
-  "license": "MIT",
+  "homepage": "https://github.com/ssomnoremac/library-viewer",
+  "license": "",
   "private": true,
   "dependencies": {
     "angular": "1.2.x",
