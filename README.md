@@ -20,13 +20,13 @@ Also, I like the framework for how it handles api requests, transforming them in
 From catalog.json I make the book resource which I used to build scope context
 
 * Angular-seed.
-- I needed a seed to same time building components and this one is popular
+I needed a seed to save time building components and this one is a good one.
 
 * Foundation.
-- I prefer it to Bootstrap. No good reason. I prefer their mascot?
+I prefer it to Bootstrap. No good reason. I prefer their mascot?
 
 * Snapjs.
-- I needed a menu that was mobile and swipe capable
+I needed a menu that was mobile and swipe capable
 
 ### Where to look
 
@@ -39,16 +39,16 @@ From catalog.json I make the book resource which I used to build scope context
 ### Still to Do
 
 * Optimize.
-- More time needs to be spent emulating devices to ensure this works as a true mobile app
+More time needs to be spent emulating devices to ensure this works as a true mobile app
 
 * Fixed Header.
-- I haven't worked with Snap enough to have figured this out but the search and menu should be fixed at the top -- not scroll
+I haven't worked with Snap enough to have figured this out but the search and menu should be fixed at the top -- not scroll
 
 * Promises, Promises.
-- There's a bug on load. Some of the angular $scope gets initiated too soon. There should be another promise in language and tag list builders.
+There's a bug on load. Some of the angular $scope gets initiated too soon. There should be another promise in language and tag list builders.
 
 * Menu Clarity.
-- The menu could be better. Maybe words are better to describe sorting features -- or just better (changable) icons
+The menu could be better. Maybe words are better to describe sorting features -- or just better (changable) icons
 
 * Css -> SCSS.
-- Sass makes more sense for handling three different view states
+Sass makes more sense for handling three different view states
