@@ -18,6 +18,14 @@
       			<a href="" ng-click="updateLanguage(language)" data-ng-bind="language">{{language}}</a>
    			</li>
   		</ul>
+  		<div class="tag-container">
+  			<span data-ng-repeat="tag in tags">
+  				<a href='' ng-click="filterByTag(tag)">
+  					<span class="warning label"><i class="fa fa-circle"></i>&nbsp;{{tag}}</span>
+  				</a>
+  			</span>
+  			<a href='' class="warning success label" ng-click="filterByTag('')">RESET</a>
+  		</div>
 	</div>
 	
 </snap-drawer>
@@ -26,14 +34,14 @@
 <snap-content>
     <!-- main content -->
     <div class="top">
-    	<a class="button toggle-menu" snap-toggle="left">
+    	<a href='' class="button toggle-menu" snap-toggle="left">
     		<i class="fa fa-bars fa-3x"></i>
     	</a>
 		<input class='search-input' type="text" data-ng-model="searchText" placeholder='search'/>
 	</div>
 	<div class="list-group" data-ng-class="{'collapsed':collapsed}">
-		<div data-ng-repeat="book in booklist | filter:searchText | filter:filterLanguage | orderBy:predicate:reverse" class="library-item" ng-class="{expanded: expo[book.id]}">
-			<a class="info-area" ng-click="expand(book.id)" >
+		<div data-ng-repeat="book in booklist | filter:searchText | filter:filterLanguage | filter:filterTag | orderBy:predicate:reverse" class="library-item" ng-class="{expanded: expo[book.id]}">
+			<a href='' class="info-area" ng-click="expand(book.id)" >
 				<div class='thumbnail-container'>
 					<img class="thumbnail" data-ng-hide="collapsed" data-ng-src="thumbnails/{{book.id}}.jpg"/>
 				</div>
@@ -41,11 +49,12 @@
 					<h5 class="library-item-title" data-ng-bind="book.doc.name"></h5>
 					<p class="library-item-author" data-ng-bind="book.doc.authors[0].full_name"></p>
 				</div>
+				<a href='' class="button large read" data-ng-hide="collapsed" ng-click="expand(book.id)">READ</a>
 				<div class="extra-info">
-					Blurb:<p data-ng-bind="book.doc.blurb"></p>
-					Editor:<p data-ng-bind="book.doc.editor[0].name"></p>
+					<strong>Blurb:</strong><p data-ng-bind="book.doc.blurb"></p>
+					<strong>Editor:</strong><p data-ng-bind="book.doc.editor[0].name"></p>
+					<span ng-repeat="tag in book.doc.tags" class="warning label"><i class="fa fa-circle"></i>&nbsp;{{tag}}</span>
 				</div>
-			<a href='#' class="button large read" data-ng-hide="collapsed">READ</a>
 		</div>
 	</div>
 </snap-content>

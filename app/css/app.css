@@ -1,12 +1,39 @@
 /* app css stylesheet */
 h5{
   line-height:1em;
-  font-size:20px;
+  font-size:1.1em;
 }
-
 p{
   margin:0;
-  font-size:16px;
+  font-size:1em;
+}
+.list-group.collapsed h5{
+  font-weight:500;
+  margin-right:10px;
+  display:inline-block;
+  font-size:.8em;
+  white-space: nowrap
+}
+.list-group.collapsed p{
+  display:inline-block;
+  font-size:.7em;
+  white-space: nowrap
+}
+.library-item.expanded h5{
+  display:block;
+}
+.library-item.expanded p{
+  display:block;
+}
+
+snap-content{
+  background-color:#fff;
+  width:100%;
+  max-width:750px;
+  min-width:450px;
+}
+snap-drawer{
+  background-color:#333;
 }
 img.thumbnail{
   max-width:86px;
@@ -20,12 +47,15 @@ img.thumbnail{
 .info-area{
   display:inline-block;
   vertical-align:middle;
+  max-width:400px;
 }
 .main-info-container{
   height:80px;
   vertical-align:middle;
   display:inline-block;
-  max-width:265px;
+}
+.collapsed .info-area{
+  width:100%;
 }
 .collapsed .main-info-container{
   max-width:700px;
@@ -41,21 +71,12 @@ img.thumbnail{
   border: 1px solid #ddd;
   height:120px;
   width: 100%;
-  min-width:550px;
 }
 .library-item.expanded{
-  height: 340px !important;
+  height: 340px !important; /* angular ng-hide override should be resolved some other way */
 }
 .library-item.expanded img{
-  display:inline-block !important;
-}
-.list-group.collapsed p{
-  display:inline-block;
-}
-.list-group.collapsed h5{
-  font-weight:500;
-  margin-right:10px;
-  display:inline-block;
+  display:inline-block !important; /* angular ng-hide override should be resolved some other way */
 }
 
 
@@ -87,22 +108,19 @@ input.search-input{
   display:none;
 }
 a.read{
-  margin:23px 10px;
-  float:right;
+  position:absolute;
+  right:8%;
+  margin-top:25px;
+}
+.library-item.expanded a.read{
+  display:inline-block !important; /* angular ng-hide override should be resolved some other way */
 }
 a.toggle-menu{
   padding: 13px 19px;
   margin: 6px 0;
   z-index:5000;
 }
-snap-content{
-  background-color:#fff;
-  max-width:750px;
-  min-width:450px;
-}
-snap-drawer{
-  background-color:#333;
-}
+
 .extra-info{
   display:none;
 }
@@ -111,4 +129,11 @@ snap-drawer{
   padding: 20px;
   margin:20px 0;
   border: 1px solid #ccc;
+}
+.warning{
+  padding:7px;
+  margin:7px;
+}
+.tag-container{
+  margin:14px;
 }
