@@ -1,1 +1,1 @@
-web: library-viewer
+web: node app.js
