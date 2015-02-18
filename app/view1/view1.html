@@ -37,7 +37,7 @@
     	<a href='' class="button toggle-menu" snap-toggle="left">
     		<i class="fa fa-bars fa-3x"></i>
     	</a>
-		<input class='search-input' type="text" data-ng-model="searchText" placeholder='search'/>
+		<input id='search-input' type="text" data-ng-model="searchText" placeholder='search'/>
 	</div>
 	<div class="list-group" data-ng-class="{'collapsed':collapsed}">
 		<div data-ng-repeat="book in booklist | filter:searchText | filter:filterLanguage | filter:filterTag | orderBy:predicate:reverse" class="library-item" ng-class="{expanded: expo[book.id]}">

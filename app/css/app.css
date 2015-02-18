@@ -46,12 +46,11 @@ img.thumbnail{
 }
 .info-area{
   display:inline-block;
-  vertical-align:middle;
   max-width:400px;
+  min-width:70%;
 }
 .main-info-container{
   height:80px;
-  vertical-align:middle;
   display:inline-block;
 }
 .collapsed .info-area{
@@ -84,8 +83,8 @@ img.thumbnail{
   background-color:#eee;
   padding: 6px;
 }
-.search-input{
-  max-width: 80%;
+#search-input{
+  max-width: 80% ;
   margin: 6px;
   font-size: 29px;
   font-weight: 700;
@@ -139,7 +138,7 @@ a.read{
 
 /***** MOBILES ******/
 
-@media only screen { 
+@media only screen and (max-width: 40em){ 
 
 h5{
   line-height:1em;
@@ -159,16 +158,15 @@ img.thumbnail{
   display:inline;
   overflow:hidden;
 }
-.info-area{
+.collapsed .info-area{
   display:inline-block;
-  vertical-align:inherit !important;
   max-width:400px;
   overflow:hidden;
 }
 .main-info-container{
   height:50px;
-  vertical-align:inherit !important;
   display:inline-block;
+  vertical-align:middle;
 }
 .collapsed .info-area{
   width:100%;
@@ -201,10 +199,10 @@ a.read{
 .toggle-menu{
   padding: 4px 10px;
 }
-.search-input{
+#search-input{
   max-width:73%;
-  font-size:1.4em !important;
-  display:inline-block !important;
+  font-size:1.4em;
+  display:inline-block;
 }
 .collapsed .main-info-container{
   white-space:nowrap;
