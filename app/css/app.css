@@ -26,13 +26,13 @@ p{
   display:block;
 }
 
-snap-content{
+#snap_content{
   background-color:#fff;
   width:100%;
   max-width:750px;
   min-width:450px;
 }
-snap-drawer{
+#snap_drawer{
   background-color:#333;
 }
 img.thumbnail{
@@ -84,7 +84,7 @@ img.thumbnail{
   background-color:#eee;
   padding: 6px;
 }
-input.search-input{
+.search-input{
   max-width: 80%;
   margin: 6px;
   font-size: 29px;
@@ -115,12 +115,11 @@ a.read{
 .library-item.expanded a.read{
   display:inline-block !important; /* angular ng-hide override should be resolved some other way */
 }
-a.toggle-menu{
+.toggle-menu{
   padding: 13px 19px;
   margin: 6px 0;
   z-index:5000;
 }
-
 .extra-info{
   display:none;
 }
@@ -137,3 +136,78 @@ a.toggle-menu{
 .tag-container{
   margin:14px;
 }
+
+/***** MOBILES ******/
+
+@media only screen { 
+
+h5{
+  line-height:1em;
+  font-size:0.8em;
+}
+p{
+  margin:0;
+  font-size:0.7em;
+}
+
+img.thumbnail{
+  max-width:46px;
+  max-height:59px;
+  display:inline-block;
+}
+.thumbnail-container{
+  display:inline;
+  overflow:hidden;
+}
+.info-area{
+  display:inline-block;
+  vertical-align:inherit !important;
+  max-width:400px;
+  overflow:hidden;
+}
+.main-info-container{
+  height:50px;
+  vertical-align:inherit !important;
+  display:inline-block;
+}
+.collapsed .info-area{
+  width:100%;
+}
+.collapsed .main-info-container{
+  max-width:360px;
+}
+.list-group.collapsed .library-item{
+  height: 40px;
+  margin:0;
+}
+.library-item{
+  padding: 2px;
+  margin: 0 0 2px 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  height:66px;
+  width: 100%;
+}
+a.read{
+  position:absolute;
+  right:3%;
+  font-size:1em !important;
+  padding:1.25em .6em !important;
+  margin-top:0;
+}
+#snap_content{
+  min-width:220px;
+}
+.toggle-menu{
+  padding: 4px 10px;
+}
+.search-input{
+  max-width:73%;
+  font-size:1.4em !important;
+  display:inline-block !important;
+}
+.collapsed .main-info-container{
+  white-space:nowrap;
+}
+  
+} /* end media-only */

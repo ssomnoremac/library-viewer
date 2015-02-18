@@ -19,6 +19,7 @@ angular.module('myApp.view1', ['ngRoute','ngResource'])
 .controller('View1Ctrl', ['$scope','Books',
   function($scope, Books){
     $scope.expo = {};
+    $scope.predicate = 'doc.name'; // sort by name initially
     // function to handle click event and toggle "expanded" class of library items
     $scope.expand = function (id){
       if($scope.expo[id]) {
@@ -112,7 +113,6 @@ angular.module('myApp.view1', ['ngRoute','ngResource'])
          });
       $scope.languages = uniqueLanguageList;
       $scope.tags = uniqueTagList;
-      $scope.predicate = 'doc.name';
       $scope.languageButtonTitle = 'Language';
       $scope.collapsed = false;
       $scope.filterByTag = function(tag){
